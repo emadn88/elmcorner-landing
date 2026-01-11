@@ -1,0 +1,22 @@
+# .env File Setup Instructions
+
+Since .env files are protected, please follow these steps:
+
+1. Create .env file from .env.example:
+   cp .env.example .env
+
+2. Generate application key:
+   php artisan key:generate
+
+3. Update database credentials in .env:
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=elmcorner
+   DB_USERNAME=your_username
+   DB_PASSWORD=your_password
+
+4. Update APP_URL if needed:
+   APP_URL=http://localhost:8000
+
+The .env.example file should be in the root directory.

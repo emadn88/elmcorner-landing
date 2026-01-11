@@ -1,0 +1,458 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap');
+
+@layer base {
+  body {
+    @apply font-almarai text-gray-800;
+    font-family: 'Almarai', sans-serif;
+  }
+  
+  [dir="rtl"] {
+    @apply font-almarai;
+    font-family: 'Almarai', sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-islamic-green-600 to-islamic-green-700 text-white px-8 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300;
+  }
+  
+  .btn-secondary {
+    @apply text-white px-8 py-3 rounded-lg font-semibold shadow-xl transform hover:-translate-y-1 transition-all duration-300 relative overflow-hidden;
+    background: linear-gradient(135deg, #d97706 0%, #ea580c 50%, #dc2626 100%);
+    border: 2px solid rgba(217, 119, 6, 0.5);
+    box-shadow: 
+      0 8px 25px rgba(0, 0, 0, 0.4),
+      0 0 25px rgba(217, 119, 6, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    animation: button-pulse 3s ease-in-out infinite;
+  }
+  
+  .btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    transform: rotate(45deg);
+    animation: shine-sweep 4s ease-in-out infinite;
+  }
+  
+  .btn-secondary::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(135deg, rgba(217, 119, 6, 0.5), rgba(234, 88, 12, 0.5), rgba(217, 119, 6, 0.5));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .btn-secondary:hover::after {
+    opacity: 0.6;
+  }
+  
+  .btn-secondary:hover {
+    background: linear-gradient(135deg, #ea580c 0%, #f97316 50%, #fb923c 100%);
+    border-color: rgba(217, 119, 6, 0.6);
+    box-shadow: 
+      0 12px 35px rgba(0, 0, 0, 0.5),
+      0 0 30px rgba(217, 119, 6, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px) scale(1.03);
+  }
+  
+  @keyframes button-pulse {
+    0%, 100% {
+      box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.4),
+        0 0 25px rgba(217, 119, 6, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+    50% {
+      box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(217, 119, 6, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+  }
+  
+  @keyframes shine-sweep {
+    0% {
+      transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    100% {
+      transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+  }
+  
+  .section-padding {
+    @apply py-20 px-4 md:px-8 lg:px-16;
+  }
+  
+  .islamic-bg {
+    @apply bg-gradient-to-br from-gray-900 via-islamic-dark-dark to-gray-900;
+    background-image: url('data:image/svg+xml,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z" fill="%23ffffff" fill-opacity="0.05" fill-rule="evenodd"/%3E%3C/svg%3E');
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .text-shadow-lg {
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Hero Image Professional Styling */
+.hero-image-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  perspective: 1000px;
+  isolation: isolate;
+}
+
+.hero-main-image {
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 0 60px rgba(34, 197, 94, 0.2);
+  transform: translateZ(0);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.6s ease;
+  object-fit: cover;
+  filter: brightness(1.05) contrast(1.05) saturate(1.1);
+}
+
+.hero-image-container:hover .hero-main-image {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 35px 70px -12px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 255, 255, 0.15),
+    0 0 80px rgba(34, 197, 94, 0.3);
+}
+
+.hero-image-glow {
+  position: absolute;
+  inset: -20px;
+  background: linear-gradient(135deg, 
+    rgba(34, 197, 94, 0.3) 0%, 
+    rgba(16, 185, 129, 0.2) 25%,
+    rgba(6, 182, 212, 0.2) 50%,
+    rgba(217, 119, 6, 0.2) 75%,
+    rgba(34, 197, 94, 0.3) 100%);
+  border-radius: 32px;
+  filter: blur(30px);
+  opacity: 0.6;
+  animation: pulse-glow 3s ease-in-out infinite;
+  z-index: -1;
+}
+
+.hero-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(34, 197, 94, 0.1) 0%,
+    transparent 50%,
+    rgba(6, 182, 212, 0.1) 100%
+  );
+  border-radius: 24px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+/* Professional Statistics Cards */
+.stat-card {
+  position: relative;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.3), rgba(6, 182, 212, 0.3));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.stat-card:hover::before {
+  opacity: 1;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(34, 197, 94, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.stat-card-green:hover {
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(34, 197, 94, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.stat-card-teal:hover {
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(6, 182, 212, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  transition: all 0.3s ease;
+}
+
+.stat-icon-green {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(22, 163, 74, 0.2));
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: #22c55e;
+}
+
+.stat-icon-teal {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(8, 145, 178, 0.2));
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  color: #06b6d4;
+}
+
+.stat-card:hover .stat-icon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.stat-card:hover .stat-icon-green {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.3), rgba(22, 163, 74, 0.3));
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
+}
+
+.stat-card:hover .stat-icon-teal {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.3), rgba(8, 145, 178, 0.3));
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+}
+
+/* Responsive adjustments for hero image */
+@media (max-width: 1024px) {
+  .hero-image-container {
+    max-width: 500px;
+    margin-top: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-image-container {
+    max-width: 100%;
+    margin-top: 2rem;
+  }
+  
+  .hero-main-image {
+    border-radius: 16px;
+  }
+  
+  .hero-image-glow {
+    inset: -15px;
+    border-radius: 24px;
+  }
+}
+
+/* Floating WhatsApp Button */
+.whatsapp-float-button {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 8px 25px rgba(37, 211, 102, 0.4),
+    0 0 20px rgba(37, 211, 102, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: white;
+  animation: whatsapp-pulse 2s ease-in-out infinite;
+}
+
+.whatsapp-float-button:hover {
+  transform: scale(1.1);
+  box-shadow: 
+    0 12px 35px rgba(37, 211, 102, 0.5),
+    0 0 30px rgba(37, 211, 102, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.whatsapp-float-button:active {
+  transform: scale(0.95);
+}
+
+#whatsapp-float {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 50;
+}
+
+#whatsapp-float:active {
+  cursor: grabbing;
+}
+
+#whatsapp-float svg {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  transition: transform 0.3s ease;
+}
+
+#whatsapp-float:hover svg {
+  transform: scale(1.1);
+}
+
+@keyframes whatsapp-pulse {
+  0%, 100% {
+    box-shadow: 
+      0 8px 25px rgba(37, 211, 102, 0.4),
+      0 0 20px rgba(37, 211, 102, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 
+      0 8px 25px rgba(37, 211, 102, 0.5),
+      0 0 25px rgba(37, 211, 102, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Responsive adjustments for WhatsApp button */
+@media (max-width: 768px) {
+  .whatsapp-float-button {
+    width: 56px;
+    height: 56px;
+  }
+  
+  #whatsapp-float svg {
+    width: 48px;
+    height: 48px;
+  }
+  
+  #whatsapp-float {
+    bottom: 4rem;
+    right: 1rem;
+  }
+}
+
+/* Social Media Icons */
+.social-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(6, 182, 212, 0.1));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #9ca3af;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+}
+
+.social-icon:hover {
+  transform: translateY(-3px) scale(1.1);
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(6, 182, 212, 0.2));
+  border-color: rgba(34, 197, 94, 0.4);
+  color: #22c55e;
+  box-shadow: 
+    0 8px 20px rgba(34, 197, 94, 0.3),
+    0 0 15px rgba(34, 197, 94, 0.2);
+}
+
+.social-icon svg {
+  transition: transform 0.3s ease;
+}
+
+.social-icon:hover svg {
+  transform: scale(1.15);
+}
+
+/* Facebook specific hover */
+.social-icon:first-child:hover {
+  color: #1877f2;
+  border-color: rgba(24, 119, 242, 0.4);
+  box-shadow: 
+    0 8px 20px rgba(24, 119, 242, 0.3),
+    0 0 15px rgba(24, 119, 242, 0.2);
+}
+
+/* Instagram specific hover */
+.social-icon:last-child:hover {
+  color: #e4405f;
+  border-color: rgba(228, 64, 95, 0.4);
+  box-shadow: 
+    0 8px 20px rgba(228, 64, 95, 0.3),
+    0 0 15px rgba(228, 64, 95, 0.2);
+  background: linear-gradient(135deg, rgba(228, 64, 95, 0.2), rgba(131, 58, 180, 0.2));
+}
