@@ -344,3 +344,537 @@
 #20 /Users/ahmedomar/Documents/ElmCorner/website/artisan(14): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
 #21 {main}
 "} 
+[2026-01-12 10:11:26] production.ERROR: SQLSTATE[HY000] [2002] Operation not permitted (Connection: mysql, SQL: select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = 'forge' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED') order by table_name) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 2002): SQLSTATE[HY000] [2002] Operation not permitted (Connection: mysql, SQL: select table_name as `name`, (data_length + index_length) as `size`, table_comment as `comment`, engine as `engine`, table_collation as `collation` from information_schema.tables where table_schema = 'forge' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED') order by table_name) at /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php:829)
+[stacktrace]
+#0 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(783): Illuminate\\Database\\Connection->runQueryCallback('select table_na...', Array, Object(Closure))
+#1 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(414): Illuminate\\Database\\Connection->run('select table_na...', Array, Object(Closure))
+#2 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(401): Illuminate\\Database\\Connection->select('select table_na...', Array, false)
+#3 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Schema/MySqlBuilder.php(41): Illuminate\\Database\\Connection->selectFromWriteConnection('select table_na...')
+#4 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Schema/Builder.php(165): Illuminate\\Database\\Schema\\MySqlBuilder->getTables(false)
+#5 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Migrations/DatabaseMigrationRepository.php(184): Illuminate\\Database\\Schema\\Builder->hasTable('migrations')
+#6 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(727): Illuminate\\Database\\Migrations\\DatabaseMigrationRepository->repositoryExists()
+#7 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(140): Illuminate\\Database\\Migrations\\Migrator->repositoryExists()
+#8 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Support/helpers.php(261): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}(1)
+#9 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(140): retry(1, Object(Closure), 0, Object(Closure))
+#10 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(116): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->repositoryExists()
+#11 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(84): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->prepareDatabase()
+#12 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(641): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#13 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(83): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#14 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#15 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#16 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#17 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#18 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#19 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/Command.php(211): Illuminate\\Container\\Container->call(Array)
+#20 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Command/Command.php(326): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#21 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#22 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(1106): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#23 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#24 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#25 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 /Users/ahmedomar/Documents/ElmCorner/website/artisan(14): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#27 {main}
+
+[previous exception] [object] (PDOException(code: 2002): SQLSTATE[HY000] [2002] Operation not permitted at /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php:65)
+[stacktrace]
+#0 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php(65): PDO->__construct('mysql:host=127....', 'forge', Object(SensitiveParameterValue), Array)
+#1 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php(44): Illuminate\\Database\\Connectors\\Connector->createPdoConnection('mysql:host=127....', 'forge', '', Array)
+#2 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connectors/MySqlConnector.php(24): Illuminate\\Database\\Connectors\\Connector->createConnection('mysql:host=127....', Array, Array)
+#3 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connectors/ConnectionFactory.php(184): Illuminate\\Database\\Connectors\\MySqlConnector->connect(Array)
+#4 [internal function]: Illuminate\\Database\\Connectors\\ConnectionFactory->Illuminate\\Database\\Connectors\\{closure}()
+#5 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(1339): call_user_func(Object(Closure))
+#6 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(528): Illuminate\\Database\\Connection->getPdo()
+#7 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(423): Illuminate\\Database\\Connection->getPdoForSelect(false)
+#8 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(816): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('select table_na...', Array)
+#9 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(783): Illuminate\\Database\\Connection->runQueryCallback('select table_na...', Array, Object(Closure))
+#10 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(414): Illuminate\\Database\\Connection->run('select table_na...', Array, Object(Closure))
+#11 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(401): Illuminate\\Database\\Connection->select('select table_na...', Array, false)
+#12 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Schema/MySqlBuilder.php(41): Illuminate\\Database\\Connection->selectFromWriteConnection('select table_na...')
+#13 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Schema/Builder.php(165): Illuminate\\Database\\Schema\\MySqlBuilder->getTables(false)
+#14 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Migrations/DatabaseMigrationRepository.php(184): Illuminate\\Database\\Schema\\Builder->hasTable('migrations')
+#15 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(727): Illuminate\\Database\\Migrations\\DatabaseMigrationRepository->repositoryExists()
+#16 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(140): Illuminate\\Database\\Migrations\\Migrator->repositoryExists()
+#17 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Support/helpers.php(261): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}(1)
+#18 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(140): retry(1, Object(Closure), 0, Object(Closure))
+#19 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(116): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->repositoryExists()
+#20 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(84): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->prepareDatabase()
+#21 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(641): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#22 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(83): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#23 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#24 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#25 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#26 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#27 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#28 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/Command.php(211): Illuminate\\Container\\Container->call(Array)
+#29 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Command/Command.php(326): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#30 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#31 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(1106): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#32 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#34 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#35 /Users/ahmedomar/Documents/ElmCorner/website/artisan(14): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#36 {main}
+"} 
+[2026-01-12 10:18:24] production.ERROR: Writing to /Users/ahmedomar/.config/psysh/psysh_history is not allowed. {"exception":"[object] (ErrorException(code: 0): Writing to /Users/ahmedomar/.config/psysh/psysh_history is not allowed. at /Users/ahmedomar/Documents/ElmCorner/website/vendor/psy/psysh/src/ConfigPaths.php:419)
+[stacktrace]
+#0 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(255): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(1024, 'Writing to /Use...', '/Users/ahmedoma...', 419)
+#1 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(1024, 'Writing to /Use...', '/Users/ahmedoma...', 419)
+#2 /Users/ahmedomar/Documents/ElmCorner/website/vendor/psy/psysh/src/ConfigPaths.php(419): trigger_error('Writing to /Use...', 1024)
+#3 /Users/ahmedomar/Documents/ElmCorner/website/vendor/psy/psysh/src/Configuration.php(683): Psy\\ConfigPaths::touchFileWithMkdir('/Users/ahmedoma...')
+#4 /Users/ahmedomar/Documents/ElmCorner/website/vendor/psy/psysh/src/Configuration.php(707): Psy\\Configuration->setHistoryFile('/Users/ahmedoma...')
+#5 /Users/ahmedomar/Documents/ElmCorner/website/vendor/psy/psysh/src/Configuration.php(852): Psy\\Configuration->getHistoryFile()
+#6 /Users/ahmedomar/Documents/ElmCorner/website/vendor/psy/psysh/src/Shell.php(95): Psy\\Configuration->getReadline()
+#7 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/tinker/src/Console/TinkerCommand.php(59): Psy\\Shell->__construct(Object(Psy\\Configuration))
+#8 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Laravel\\Tinker\\Console\\TinkerCommand->handle()
+#9 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#10 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#11 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#12 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#13 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/Command.php(211): Illuminate\\Container\\Container->call(Array)
+#14 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Command/Command.php(326): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#15 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#16 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(1106): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#17 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand(Object(Laravel\\Tinker\\Console\\TinkerCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#18 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#19 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#20 /Users/ahmedomar/Documents/ElmCorner/website/artisan(14): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#21 {main}
+"} 
+[2026-01-12 10:19:28] production.ERROR: The "--columns" option does not exist. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): The \"--columns\" option does not exist. at /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Input/ArgvInput.php:223)
+[stacktrace]
+#0 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Input/ArgvInput.php(150): Symfony\\Component\\Console\\Input\\ArgvInput->addLongOption('columns', 'method,uri,name')
+#1 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Input/ArgvInput.php(85): Symfony\\Component\\Console\\Input\\ArgvInput->parseLongOption('--columns=metho...')
+#2 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Input/ArgvInput.php(74): Symfony\\Component\\Console\\Input\\ArgvInput->parseToken('--columns=metho...', true)
+#3 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Input/Input.php(56): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#4 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Command/Command.php(285): Symfony\\Component\\Console\\Input\\Input->bind(Object(Symfony\\Component\\Console\\Input\\InputDefinition))
+#5 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#6 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(1106): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Foundation\\Console\\RouteListCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#10 /Users/ahmedomar/Documents/ElmCorner/website/artisan(14): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#11 {main}
+"} 
+[2026-01-12 10:39:56] local.ERROR: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'importance-of-quran-memorization-modern-times' for key 'posts.posts_slug_en_unique' (Connection: mysql, SQL: insert into `posts` (`title_en`, `title_ar`, `slug_en`, `slug_ar`, `excerpt_en`, `excerpt_ar`, `content_en`, `content_ar`, `featured_image`, `author_name`, `meta_title_en`, `meta_title_ar`, `meta_description_en`, `meta_description_ar`, `meta_keywords_en`, `meta_keywords_ar`, `is_featured`, `is_published`, `published_at`, `views_count`, `updated_at`, `created_at`) values (The Importance of Quran Memorization in Modern Times, أهمية حفظ القرآن الكريم في العصر الحديث, importance-of-quran-memorization-modern-times, اهمية-حفظ-القرآن-الكريم-العصر-الحديث, Discover why memorizing the Quran remains one of the most rewarding spiritual practices, even in our fast-paced modern world. Learn about the benefits and methods that make it accessible to everyone., اكتشف لماذا يظل حفظ القرآن الكريم من أكثر الممارسات الروحية المجزية، حتى في عالمنا الحديث سريع الخطى. تعرف على الفوائد والطرق التي تجعله في متناول الجميع., In today's fast-paced world, many people wonder if traditional practices like Quran memorization still hold relevance. The answer is a resounding yes. Memorizing the Quran is not just a religious obligation; it's a transformative journey that brings peace, discipline, and spiritual fulfillment.
+
+Benefits of Quran Memorization:
+
+1. Spiritual Connection: Regular memorization creates a deep bond with the words of Allah, bringing tranquility to the heart.
+
+2. Mental Discipline: The process of memorization enhances memory, concentration, and cognitive abilities.
+
+3. Protection: The memorized verses serve as a spiritual shield and guidance in daily life.
+
+4. Reward: The Prophet (peace be upon him) said that those who memorize the Quran will be rewarded in the Hereafter.
+
+Modern Methods:
+
+With online learning platforms like ElmCorner, memorization has become more accessible than ever. Our structured programs help students of all ages and backgrounds achieve their memorization goals through:
+
+- Personalized learning plans
+- Expert guidance from qualified teachers
+- Flexible scheduling
+- Supportive community environment
+
+Whether you're a beginner or looking to complete your memorization, the journey is within reach. Start your path to becoming a Hafiz today!, في عالمنا الحديث سريع الخطى، يتساءل الكثيرون عما إذا كانت الممارسات التقليدية مثل حفظ القرآن الكريم لا تزال ذات صلة. الجواب هو نعم بكل تأكيد. حفظ القرآن ليس مجرد واجب ديني؛ إنه رحلة تحويلية تجلب السلام والانضباط والوفاء الروحي.
+
+فوائد حفظ القرآن الكريم:
+
+1. الاتصال الروحي: يخلق الحفظ المنتظم رابطة عميقة مع كلمات الله، مما يجلب الطمأنينة للقلب.
+
+2. الانضباط العقلي: تعزز عملية الحفظ الذاكرة والتركيز والقدرات المعرفية.
+
+3. الحماية: الآيات المحفوظة تعمل كدرع روحي وإرشاد في الحياة اليومية.
+
+4. الأجر: قال النبي (صلى الله عليه وسلم) إن الذين يحفظون القرآن سيكافأون في الآخرة.
+
+الطرق الحديثة:
+
+مع منصات التعلم عبر الإنترنت مثل ElmCorner، أصبح الحفظ أكثر سهولة من أي وقت مضى. تساعد برامجنا المنظمة الطلاب من جميع الأعمار والخلفيات على تحقيق أهدافهم في الحفظ من خلال:
+
+- خطط التعلم المخصصة
+- التوجيه الخبير من المعلمين المؤهلين
+- الجدولة المرنة
+- بيئة مجتمعية داعمة
+
+سواء كنت مبتدئًا أو تتطلع إلى إكمال حفظك، فإن الرحلة في متناول اليد. ابدأ طريقك لتصبح حافظًا اليوم!, images/quran_memo.png, Sheikh Ahmed Al-Mansouri, Quran Memorization Guide: Benefits & Modern Methods | ElmCorner, دليل حفظ القرآن: الفوائد والطرق الحديثة | ElmCorner, Learn about the importance of Quran memorization, its spiritual and mental benefits, and modern methods to become a Hafiz. Expert guidance available at ElmCorner., تعرف على أهمية حفظ القرآن الكريم وفوائده الروحية والعقلية والطرق الحديثة لتصبح حافظًا. التوجيه الخبير متاح في ElmCorner., Quran memorization, Hafiz, Quran learning, Islamic education, online Quran classes, memorize Quran, حفظ القرآن، حافظ، تعلم القرآن، التعليم الإسلامي، دروس القرآن عبر الإنترنت, 1, 1, 2026-01-07 10:39:56, 0, 2026-01-12 10:39:56, 2026-01-12 10:39:56)) {"exception":"[object] (Illuminate\\Database\\UniqueConstraintViolationException(code: 23000): SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'importance-of-quran-memorization-modern-times' for key 'posts.posts_slug_en_unique' (Connection: mysql, SQL: insert into `posts` (`title_en`, `title_ar`, `slug_en`, `slug_ar`, `excerpt_en`, `excerpt_ar`, `content_en`, `content_ar`, `featured_image`, `author_name`, `meta_title_en`, `meta_title_ar`, `meta_description_en`, `meta_description_ar`, `meta_keywords_en`, `meta_keywords_ar`, `is_featured`, `is_published`, `published_at`, `views_count`, `updated_at`, `created_at`) values (The Importance of Quran Memorization in Modern Times, أهمية حفظ القرآن الكريم في العصر الحديث, importance-of-quran-memorization-modern-times, اهمية-حفظ-القرآن-الكريم-العصر-الحديث, Discover why memorizing the Quran remains one of the most rewarding spiritual practices, even in our fast-paced modern world. Learn about the benefits and methods that make it accessible to everyone., اكتشف لماذا يظل حفظ القرآن الكريم من أكثر الممارسات الروحية المجزية، حتى في عالمنا الحديث سريع الخطى. تعرف على الفوائد والطرق التي تجعله في متناول الجميع., In today's fast-paced world, many people wonder if traditional practices like Quran memorization still hold relevance. The answer is a resounding yes. Memorizing the Quran is not just a religious obligation; it's a transformative journey that brings peace, discipline, and spiritual fulfillment.
+
+Benefits of Quran Memorization:
+
+1. Spiritual Connection: Regular memorization creates a deep bond with the words of Allah, bringing tranquility to the heart.
+
+2. Mental Discipline: The process of memorization enhances memory, concentration, and cognitive abilities.
+
+3. Protection: The memorized verses serve as a spiritual shield and guidance in daily life.
+
+4. Reward: The Prophet (peace be upon him) said that those who memorize the Quran will be rewarded in the Hereafter.
+
+Modern Methods:
+
+With online learning platforms like ElmCorner, memorization has become more accessible than ever. Our structured programs help students of all ages and backgrounds achieve their memorization goals through:
+
+- Personalized learning plans
+- Expert guidance from qualified teachers
+- Flexible scheduling
+- Supportive community environment
+
+Whether you're a beginner or looking to complete your memorization, the journey is within reach. Start your path to becoming a Hafiz today!, في عالمنا الحديث سريع الخطى، يتساءل الكثيرون عما إذا كانت الممارسات التقليدية مثل حفظ القرآن الكريم لا تزال ذات صلة. الجواب هو نعم بكل تأكيد. حفظ القرآن ليس مجرد واجب ديني؛ إنه رحلة تحويلية تجلب السلام والانضباط والوفاء الروحي.
+
+فوائد حفظ القرآن الكريم:
+
+1. الاتصال الروحي: يخلق الحفظ المنتظم رابطة عميقة مع كلمات الله، مما يجلب الطمأنينة للقلب.
+
+2. الانضباط العقلي: تعزز عملية الحفظ الذاكرة والتركيز والقدرات المعرفية.
+
+3. الحماية: الآيات المحفوظة تعمل كدرع روحي وإرشاد في الحياة اليومية.
+
+4. الأجر: قال النبي (صلى الله عليه وسلم) إن الذين يحفظون القرآن سيكافأون في الآخرة.
+
+الطرق الحديثة:
+
+مع منصات التعلم عبر الإنترنت مثل ElmCorner، أصبح الحفظ أكثر سهولة من أي وقت مضى. تساعد برامجنا المنظمة الطلاب من جميع الأعمار والخلفيات على تحقيق أهدافهم في الحفظ من خلال:
+
+- خطط التعلم المخصصة
+- التوجيه الخبير من المعلمين المؤهلين
+- الجدولة المرنة
+- بيئة مجتمعية داعمة
+
+سواء كنت مبتدئًا أو تتطلع إلى إكمال حفظك، فإن الرحلة في متناول اليد. ابدأ طريقك لتصبح حافظًا اليوم!, images/quran_memo.png, Sheikh Ahmed Al-Mansouri, Quran Memorization Guide: Benefits & Modern Methods | ElmCorner, دليل حفظ القرآن: الفوائد والطرق الحديثة | ElmCorner, Learn about the importance of Quran memorization, its spiritual and mental benefits, and modern methods to become a Hafiz. Expert guidance available at ElmCorner., تعرف على أهمية حفظ القرآن الكريم وفوائده الروحية والعقلية والطرق الحديثة لتصبح حافظًا. التوجيه الخبير متاح في ElmCorner., Quran memorization, Hafiz, Quran learning, Islamic education, online Quran classes, memorize Quran, حفظ القرآن، حافظ، تعلم القرآن، التعليم الإسلامي، دروس القرآن عبر الإنترنت, 1, 1, 2026-01-07 10:39:56, 0, 2026-01-12 10:39:56, 2026-01-12 10:39:56)) at /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php:824)
+[stacktrace]
+#0 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(783): Illuminate\\Database\\Connection->runQueryCallback('insert into `po...', Array, Object(Closure))
+#1 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/MySqlConnection.php(34): Illuminate\\Database\\Connection->run('insert into `po...', Array, Object(Closure))
+#2 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Query/Processors/MySqlProcessor.php(35): Illuminate\\Database\\MySqlConnection->insert('insert into `po...', Array, 'id')
+#3 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3549): Illuminate\\Database\\Query\\Processors\\MySqlProcessor->processInsertGetId(Object(Illuminate\\Database\\Query\\Builder), 'insert into `po...', Array, 'id')
+#4 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(1982): Illuminate\\Database\\Query\\Builder->insertGetId(Array, 'id')
+#5 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(1334): Illuminate\\Database\\Eloquent\\Builder->__call('insertGetId', Array)
+#6 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(1299): Illuminate\\Database\\Eloquent\\Model->insertAndSetId(Object(Illuminate\\Database\\Eloquent\\Builder), Array)
+#7 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(1138): Illuminate\\Database\\Eloquent\\Model->performInsert(Object(Illuminate\\Database\\Eloquent\\Builder))
+#8 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(1025): Illuminate\\Database\\Eloquent\\Model->save()
+#9 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Support/helpers.php(320): Illuminate\\Database\\Eloquent\\Builder->Illuminate\\Database\\Eloquent\\{closure}(Object(App\\Models\\Post))
+#10 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(1024): tap(Object(App\\Models\\Post), Object(Closure))
+#11 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Support/Traits/ForwardsCalls.php(23): Illuminate\\Database\\Eloquent\\Builder->create(Array)
+#12 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(2335): Illuminate\\Database\\Eloquent\\Model->forwardCallTo(Object(Illuminate\\Database\\Eloquent\\Builder), 'create', Array)
+#13 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(2347): Illuminate\\Database\\Eloquent\\Model->__call('create', Array)
+#14 /Users/ahmedomar/Documents/ElmCorner/website/database/seeders/PostSeeder.php(132): Illuminate\\Database\\Eloquent\\Model::__callStatic('create', Array)
+#15 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Database\\Seeders\\PostSeeder->run()
+#16 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#17 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#18 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#19 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#20 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Seeder.php(184): Illuminate\\Container\\Container->call(Array, Array)
+#21 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Seeder.php(193): Illuminate\\Database\\Seeder->Illuminate\\Database\\{closure}()
+#22 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Console/Seeds/SeedCommand.php(70): Illuminate\\Database\\Seeder->__invoke()
+#23 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/GuardsAttributes.php(155): Illuminate\\Database\\Console\\Seeds\\SeedCommand->Illuminate\\Database\\Console\\Seeds\\{closure}()
+#24 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Console/Seeds/SeedCommand.php(69): Illuminate\\Database\\Eloquent\\Model::unguarded(Object(Closure))
+#25 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Database\\Console\\Seeds\\SeedCommand->handle()
+#26 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#27 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#28 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#29 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#30 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/Command.php(211): Illuminate\\Container\\Container->call(Array)
+#31 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Command/Command.php(326): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#32 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#33 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(1106): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#34 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Seeds\\SeedCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#35 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#36 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#37 /Users/ahmedomar/Documents/ElmCorner/website/artisan(14): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#38 {main}
+
+[previous exception] [object] (PDOException(code: 23000): SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'importance-of-quran-memorization-modern-times' for key 'posts.posts_slug_en_unique' at /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/MySqlConnection.php:45)
+[stacktrace]
+#0 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/MySqlConnection.php(45): PDOStatement->execute()
+#1 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(816): Illuminate\\Database\\MySqlConnection->Illuminate\\Database\\{closure}('insert into `po...', Array)
+#2 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(783): Illuminate\\Database\\Connection->runQueryCallback('insert into `po...', Array, Object(Closure))
+#3 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/MySqlConnection.php(34): Illuminate\\Database\\Connection->run('insert into `po...', Array, Object(Closure))
+#4 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Query/Processors/MySqlProcessor.php(35): Illuminate\\Database\\MySqlConnection->insert('insert into `po...', Array, 'id')
+#5 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3549): Illuminate\\Database\\Query\\Processors\\MySqlProcessor->processInsertGetId(Object(Illuminate\\Database\\Query\\Builder), 'insert into `po...', Array, 'id')
+#6 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(1982): Illuminate\\Database\\Query\\Builder->insertGetId(Array, 'id')
+#7 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(1334): Illuminate\\Database\\Eloquent\\Builder->__call('insertGetId', Array)
+#8 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(1299): Illuminate\\Database\\Eloquent\\Model->insertAndSetId(Object(Illuminate\\Database\\Eloquent\\Builder), Array)
+#9 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(1138): Illuminate\\Database\\Eloquent\\Model->performInsert(Object(Illuminate\\Database\\Eloquent\\Builder))
+#10 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(1025): Illuminate\\Database\\Eloquent\\Model->save()
+#11 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Support/helpers.php(320): Illuminate\\Database\\Eloquent\\Builder->Illuminate\\Database\\Eloquent\\{closure}(Object(App\\Models\\Post))
+#12 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(1024): tap(Object(App\\Models\\Post), Object(Closure))
+#13 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Support/Traits/ForwardsCalls.php(23): Illuminate\\Database\\Eloquent\\Builder->create(Array)
+#14 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(2335): Illuminate\\Database\\Eloquent\\Model->forwardCallTo(Object(Illuminate\\Database\\Eloquent\\Builder), 'create', Array)
+#15 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(2347): Illuminate\\Database\\Eloquent\\Model->__call('create', Array)
+#16 /Users/ahmedomar/Documents/ElmCorner/website/database/seeders/PostSeeder.php(132): Illuminate\\Database\\Eloquent\\Model::__callStatic('create', Array)
+#17 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Database\\Seeders\\PostSeeder->run()
+#18 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#19 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#20 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#21 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#22 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Seeder.php(184): Illuminate\\Container\\Container->call(Array, Array)
+#23 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Seeder.php(193): Illuminate\\Database\\Seeder->Illuminate\\Database\\{closure}()
+#24 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Console/Seeds/SeedCommand.php(70): Illuminate\\Database\\Seeder->__invoke()
+#25 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/GuardsAttributes.php(155): Illuminate\\Database\\Console\\Seeds\\SeedCommand->Illuminate\\Database\\Console\\Seeds\\{closure}()
+#26 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Console/Seeds/SeedCommand.php(69): Illuminate\\Database\\Eloquent\\Model::unguarded(Object(Closure))
+#27 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Database\\Console\\Seeds\\SeedCommand->handle()
+#28 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#29 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#30 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#31 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#32 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/Command.php(211): Illuminate\\Container\\Container->call(Array)
+#33 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Command/Command.php(326): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#34 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#35 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(1106): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#36 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Seeds\\SeedCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#37 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#38 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#39 /Users/ahmedomar/Documents/ElmCorner/website/artisan(14): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#40 {main}
+"} 
+[2026-01-12 10:40:42] production.ERROR: SQLSTATE[HY000] [2002] Operation not permitted (Connection: mysql, SQL: select * from `posts` where (`slug_en` = importance-of-quran-memorization-modern-times) limit 1) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 2002): SQLSTATE[HY000] [2002] Operation not permitted (Connection: mysql, SQL: select * from `posts` where (`slug_en` = importance-of-quran-memorization-modern-times) limit 1) at /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php:829)
+[stacktrace]
+#0 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(783): Illuminate\\Database\\Connection->runQueryCallback('select * from `...', Array, Object(Closure))
+#1 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(414): Illuminate\\Database\\Connection->run('select * from `...', Array, Object(Closure))
+#2 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(2913): Illuminate\\Database\\Connection->select('select * from `...', Array, true)
+#3 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(2902): Illuminate\\Database\\Query\\Builder->runSelect()
+#4 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3456): Illuminate\\Database\\Query\\Builder->Illuminate\\Database\\Query\\{closure}()
+#5 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(2901): Illuminate\\Database\\Query\\Builder->onceWithColumns(Array, Object(Closure))
+#6 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(739): Illuminate\\Database\\Query\\Builder->get(Array)
+#7 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(723): Illuminate\\Database\\Eloquent\\Builder->getModels(Array)
+#8 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Concerns/BuildsQueries.php(333): Illuminate\\Database\\Eloquent\\Builder->get(Array)
+#9 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(568): Illuminate\\Database\\Eloquent\\Builder->first()
+#10 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(600): Illuminate\\Database\\Eloquent\\Builder->firstOrCreate(Array, Array)
+#11 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Support/Traits/ForwardsCalls.php(23): Illuminate\\Database\\Eloquent\\Builder->updateOrCreate(Array, Array)
+#12 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(2335): Illuminate\\Database\\Eloquent\\Model->forwardCallTo(Object(Illuminate\\Database\\Eloquent\\Builder), 'updateOrCreate', Array)
+#13 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(2347): Illuminate\\Database\\Eloquent\\Model->__call('updateOrCreate', Array)
+#14 /Users/ahmedomar/Documents/ElmCorner/website/database/seeders/PostSeeder.php(133): Illuminate\\Database\\Eloquent\\Model::__callStatic('updateOrCreate', Array)
+#15 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Database\\Seeders\\PostSeeder->run()
+#16 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#17 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#18 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#19 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#20 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Seeder.php(184): Illuminate\\Container\\Container->call(Array, Array)
+#21 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Seeder.php(193): Illuminate\\Database\\Seeder->Illuminate\\Database\\{closure}()
+#22 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Console/Seeds/SeedCommand.php(70): Illuminate\\Database\\Seeder->__invoke()
+#23 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/GuardsAttributes.php(155): Illuminate\\Database\\Console\\Seeds\\SeedCommand->Illuminate\\Database\\Console\\Seeds\\{closure}()
+#24 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Console/Seeds/SeedCommand.php(69): Illuminate\\Database\\Eloquent\\Model::unguarded(Object(Closure))
+#25 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Database\\Console\\Seeds\\SeedCommand->handle()
+#26 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#27 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#28 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#29 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#30 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/Command.php(211): Illuminate\\Container\\Container->call(Array)
+#31 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Command/Command.php(326): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#32 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#33 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(1106): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#34 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Seeds\\SeedCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#35 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#36 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#37 /Users/ahmedomar/Documents/ElmCorner/website/artisan(14): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#38 {main}
+
+[previous exception] [object] (PDOException(code: 2002): SQLSTATE[HY000] [2002] Operation not permitted at /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php:65)
+[stacktrace]
+#0 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php(65): PDO->__construct('mysql:host=127....', 'forge', Object(SensitiveParameterValue), Array)
+#1 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php(44): Illuminate\\Database\\Connectors\\Connector->createPdoConnection('mysql:host=127....', 'forge', '', Array)
+#2 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connectors/MySqlConnector.php(24): Illuminate\\Database\\Connectors\\Connector->createConnection('mysql:host=127....', Array, Array)
+#3 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connectors/ConnectionFactory.php(184): Illuminate\\Database\\Connectors\\MySqlConnector->connect(Array)
+#4 [internal function]: Illuminate\\Database\\Connectors\\ConnectionFactory->Illuminate\\Database\\Connectors\\{closure}()
+#5 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(1339): call_user_func(Object(Closure))
+#6 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(1375): Illuminate\\Database\\Connection->getPdo()
+#7 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(528): Illuminate\\Database\\Connection->getReadPdo()
+#8 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(423): Illuminate\\Database\\Connection->getPdoForSelect(true)
+#9 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(816): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('select * from `...', Array)
+#10 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(783): Illuminate\\Database\\Connection->runQueryCallback('select * from `...', Array, Object(Closure))
+#11 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(414): Illuminate\\Database\\Connection->run('select * from `...', Array, Object(Closure))
+#12 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(2913): Illuminate\\Database\\Connection->select('select * from `...', Array, true)
+#13 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(2902): Illuminate\\Database\\Query\\Builder->runSelect()
+#14 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3456): Illuminate\\Database\\Query\\Builder->Illuminate\\Database\\Query\\{closure}()
+#15 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(2901): Illuminate\\Database\\Query\\Builder->onceWithColumns(Array, Object(Closure))
+#16 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(739): Illuminate\\Database\\Query\\Builder->get(Array)
+#17 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(723): Illuminate\\Database\\Eloquent\\Builder->getModels(Array)
+#18 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Concerns/BuildsQueries.php(333): Illuminate\\Database\\Eloquent\\Builder->get(Array)
+#19 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(568): Illuminate\\Database\\Eloquent\\Builder->first()
+#20 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php(600): Illuminate\\Database\\Eloquent\\Builder->firstOrCreate(Array, Array)
+#21 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Support/Traits/ForwardsCalls.php(23): Illuminate\\Database\\Eloquent\\Builder->updateOrCreate(Array, Array)
+#22 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(2335): Illuminate\\Database\\Eloquent\\Model->forwardCallTo(Object(Illuminate\\Database\\Eloquent\\Builder), 'updateOrCreate', Array)
+#23 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(2347): Illuminate\\Database\\Eloquent\\Model->__call('updateOrCreate', Array)
+#24 /Users/ahmedomar/Documents/ElmCorner/website/database/seeders/PostSeeder.php(133): Illuminate\\Database\\Eloquent\\Model::__callStatic('updateOrCreate', Array)
+#25 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Database\\Seeders\\PostSeeder->run()
+#26 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#27 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#28 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#29 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#30 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Seeder.php(184): Illuminate\\Container\\Container->call(Array, Array)
+#31 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Seeder.php(193): Illuminate\\Database\\Seeder->Illuminate\\Database\\{closure}()
+#32 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Console/Seeds/SeedCommand.php(70): Illuminate\\Database\\Seeder->__invoke()
+#33 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Concerns/GuardsAttributes.php(155): Illuminate\\Database\\Console\\Seeds\\SeedCommand->Illuminate\\Database\\Console\\Seeds\\{closure}()
+#34 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Console/Seeds/SeedCommand.php(69): Illuminate\\Database\\Eloquent\\Model::unguarded(Object(Closure))
+#35 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Database\\Console\\Seeds\\SeedCommand->handle()
+#36 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#37 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#38 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#39 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#40 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/Command.php(211): Illuminate\\Container\\Container->call(Array)
+#41 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Command/Command.php(326): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#42 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#43 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(1106): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#44 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Seeds\\SeedCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#45 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#46 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#47 /Users/ahmedomar/Documents/ElmCorner/website/artisan(14): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#48 {main}
+"} 
+[2026-01-12 10:41:23] production.ERROR: SQLSTATE[HY000] [2002] Operation not permitted (Connection: mysql, SQL: delete from `cache`) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 2002): SQLSTATE[HY000] [2002] Operation not permitted (Connection: mysql, SQL: delete from `cache`) at /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php:829)
+[stacktrace]
+#0 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(783): Illuminate\\Database\\Connection->runQueryCallback('delete from `ca...', Array, Object(Closure))
+#1 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(600): Illuminate\\Database\\Connection->run('delete from `ca...', Array, Object(Closure))
+#2 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(564): Illuminate\\Database\\Connection->affectingStatement('delete from `ca...', Array)
+#3 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3796): Illuminate\\Database\\Connection->delete('delete from `ca...', Array)
+#4 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Cache/DatabaseStore.php(340): Illuminate\\Database\\Query\\Builder->delete()
+#5 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Cache/Repository.php(692): Illuminate\\Cache\\DatabaseStore->flush()
+#6 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Cache/Console/ClearCommand.php(69): Illuminate\\Cache\\Repository->__call('flush', Array)
+#7 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Cache\\Console\\ClearCommand->handle()
+#8 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#9 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#10 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#11 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#12 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/Command.php(211): Illuminate\\Container\\Container->call(Array)
+#13 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Command/Command.php(326): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#14 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#15 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(1106): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#16 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Cache\\Console\\ClearCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#17 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#18 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#19 /Users/ahmedomar/Documents/ElmCorner/website/artisan(14): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#20 {main}
+
+[previous exception] [object] (PDOException(code: 2002): SQLSTATE[HY000] [2002] Operation not permitted at /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php:65)
+[stacktrace]
+#0 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php(65): PDO->__construct('mysql:host=127....', 'forge', Object(SensitiveParameterValue), Array)
+#1 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php(44): Illuminate\\Database\\Connectors\\Connector->createPdoConnection('mysql:host=127....', 'forge', '', Array)
+#2 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connectors/MySqlConnector.php(24): Illuminate\\Database\\Connectors\\Connector->createConnection('mysql:host=127....', Array, Array)
+#3 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connectors/ConnectionFactory.php(184): Illuminate\\Database\\Connectors\\MySqlConnector->connect(Array)
+#4 [internal function]: Illuminate\\Database\\Connectors\\ConnectionFactory->Illuminate\\Database\\Connectors\\{closure}()
+#5 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(1339): call_user_func(Object(Closure))
+#6 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(608): Illuminate\\Database\\Connection->getPdo()
+#7 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(816): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('delete from `ca...', Array)
+#8 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(783): Illuminate\\Database\\Connection->runQueryCallback('delete from `ca...', Array, Object(Closure))
+#9 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(600): Illuminate\\Database\\Connection->run('delete from `ca...', Array, Object(Closure))
+#10 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(564): Illuminate\\Database\\Connection->affectingStatement('delete from `ca...', Array)
+#11 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3796): Illuminate\\Database\\Connection->delete('delete from `ca...', Array)
+#12 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Cache/DatabaseStore.php(340): Illuminate\\Database\\Query\\Builder->delete()
+#13 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Cache/Repository.php(692): Illuminate\\Cache\\DatabaseStore->flush()
+#14 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Cache/Console/ClearCommand.php(69): Illuminate\\Cache\\Repository->__call('flush', Array)
+#15 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Cache\\Console\\ClearCommand->handle()
+#16 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#17 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#18 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#19 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#20 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/Command.php(211): Illuminate\\Container\\Container->call(Array)
+#21 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Command/Command.php(326): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#22 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#23 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(1106): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#24 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Cache\\Console\\ClearCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#25 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#27 /Users/ahmedomar/Documents/ElmCorner/website/artisan(14): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#28 {main}
+"} 
+[2026-01-12 10:41:27] production.ERROR: The "--columns" option does not exist. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): The \"--columns\" option does not exist. at /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Input/ArgvInput.php:223)
+[stacktrace]
+#0 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Input/ArgvInput.php(150): Symfony\\Component\\Console\\Input\\ArgvInput->addLongOption('columns', 'method,uri,name')
+#1 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Input/ArgvInput.php(85): Symfony\\Component\\Console\\Input\\ArgvInput->parseLongOption('--columns=metho...')
+#2 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Input/ArgvInput.php(74): Symfony\\Component\\Console\\Input\\ArgvInput->parseToken('--columns=metho...', true)
+#3 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Input/Input.php(56): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#4 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Command/Command.php(285): Symfony\\Component\\Console\\Input\\Input->bind(Object(Symfony\\Component\\Console\\Input\\InputDefinition))
+#5 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#6 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(1106): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Foundation\\Console\\RouteListCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#9 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#10 /Users/ahmedomar/Documents/ElmCorner/website/artisan(14): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#11 {main}
+"} 
+[2026-01-12 10:43:09] production.ERROR: SQLSTATE[HY000] [2002] Operation not permitted (Connection: mysql, SQL: delete from `cache`) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 2002): SQLSTATE[HY000] [2002] Operation not permitted (Connection: mysql, SQL: delete from `cache`) at /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php:829)
+[stacktrace]
+#0 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(783): Illuminate\\Database\\Connection->runQueryCallback('delete from `ca...', Array, Object(Closure))
+#1 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(600): Illuminate\\Database\\Connection->run('delete from `ca...', Array, Object(Closure))
+#2 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(564): Illuminate\\Database\\Connection->affectingStatement('delete from `ca...', Array)
+#3 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3796): Illuminate\\Database\\Connection->delete('delete from `ca...', Array)
+#4 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Cache/DatabaseStore.php(340): Illuminate\\Database\\Query\\Builder->delete()
+#5 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Cache/Repository.php(692): Illuminate\\Cache\\DatabaseStore->flush()
+#6 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Cache/Console/ClearCommand.php(69): Illuminate\\Cache\\Repository->__call('flush', Array)
+#7 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Cache\\Console\\ClearCommand->handle()
+#8 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#9 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#10 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#11 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#12 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/Command.php(211): Illuminate\\Container\\Container->call(Array)
+#13 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Command/Command.php(326): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Illuminate\\Console\\OutputStyle))
+#14 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Illuminate\\Console\\OutputStyle))
+#15 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/Concerns/CallsCommands.php(67): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Symfony\\Component\\Console\\Output\\NullOutput))
+#16 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/Concerns/CallsCommands.php(40): Illuminate\\Console\\Command->runCommand('cache:clear', Array, Object(Symfony\\Component\\Console\\Output\\NullOutput))
+#17 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Foundation/Console/OptimizeClearCommand.php(37): Illuminate\\Console\\Command->callSilent('cache:clear')
+#18 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/View/Components/Task.php(37): Illuminate\\Foundation\\Console\\OptimizeClearCommand->Illuminate\\Foundation\\Console\\{closure}()
+#19 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/View/Components/Factory.php(58): Illuminate\\Console\\View\\Components\\Task->render('cache', Object(Closure))
+#20 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Foundation/Console/OptimizeClearCommand.php(41): Illuminate\\Console\\View\\Components\\Factory->__call('task', Array)
+#21 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Collections/Traits/EnumeratesValues.php(240): Illuminate\\Foundation\\Console\\OptimizeClearCommand->Illuminate\\Foundation\\Console\\{closure}(Object(Closure), 'cache')
+#22 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Foundation/Console/OptimizeClearCommand.php(41): Illuminate\\Support\\Collection->each(Object(Closure))
+#23 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Foundation\\Console\\OptimizeClearCommand->handle()
+#24 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#25 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#26 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#27 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#28 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/Command.php(211): Illuminate\\Container\\Container->call(Array)
+#29 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Command/Command.php(326): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#30 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#31 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(1106): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#32 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Foundation\\Console\\OptimizeClearCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#34 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#35 /Users/ahmedomar/Documents/ElmCorner/website/artisan(14): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#36 {main}
+
+[previous exception] [object] (PDOException(code: 2002): SQLSTATE[HY000] [2002] Operation not permitted at /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php:65)
+[stacktrace]
+#0 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php(65): PDO->__construct('mysql:host=127....', 'forge', Object(SensitiveParameterValue), Array)
+#1 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php(44): Illuminate\\Database\\Connectors\\Connector->createPdoConnection('mysql:host=127....', 'forge', '', Array)
+#2 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connectors/MySqlConnector.php(24): Illuminate\\Database\\Connectors\\Connector->createConnection('mysql:host=127....', Array, Array)
+#3 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connectors/ConnectionFactory.php(184): Illuminate\\Database\\Connectors\\MySqlConnector->connect(Array)
+#4 [internal function]: Illuminate\\Database\\Connectors\\ConnectionFactory->Illuminate\\Database\\Connectors\\{closure}()
+#5 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(1339): call_user_func(Object(Closure))
+#6 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(608): Illuminate\\Database\\Connection->getPdo()
+#7 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(816): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('delete from `ca...', Array)
+#8 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(783): Illuminate\\Database\\Connection->runQueryCallback('delete from `ca...', Array, Object(Closure))
+#9 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(600): Illuminate\\Database\\Connection->run('delete from `ca...', Array, Object(Closure))
+#10 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Connection.php(564): Illuminate\\Database\\Connection->affectingStatement('delete from `ca...', Array)
+#11 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3796): Illuminate\\Database\\Connection->delete('delete from `ca...', Array)
+#12 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Cache/DatabaseStore.php(340): Illuminate\\Database\\Query\\Builder->delete()
+#13 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Cache/Repository.php(692): Illuminate\\Cache\\DatabaseStore->flush()
+#14 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Cache/Console/ClearCommand.php(69): Illuminate\\Cache\\Repository->__call('flush', Array)
+#15 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Cache\\Console\\ClearCommand->handle()
+#16 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#17 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#18 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#19 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#20 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/Command.php(211): Illuminate\\Container\\Container->call(Array)
+#21 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Command/Command.php(326): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Illuminate\\Console\\OutputStyle))
+#22 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Illuminate\\Console\\OutputStyle))
+#23 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/Concerns/CallsCommands.php(67): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Symfony\\Component\\Console\\Output\\NullOutput))
+#24 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/Concerns/CallsCommands.php(40): Illuminate\\Console\\Command->runCommand('cache:clear', Array, Object(Symfony\\Component\\Console\\Output\\NullOutput))
+#25 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Foundation/Console/OptimizeClearCommand.php(37): Illuminate\\Console\\Command->callSilent('cache:clear')
+#26 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/View/Components/Task.php(37): Illuminate\\Foundation\\Console\\OptimizeClearCommand->Illuminate\\Foundation\\Console\\{closure}()
+#27 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/View/Components/Factory.php(58): Illuminate\\Console\\View\\Components\\Task->render('cache', Object(Closure))
+#28 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Foundation/Console/OptimizeClearCommand.php(41): Illuminate\\Console\\View\\Components\\Factory->__call('task', Array)
+#29 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Collections/Traits/EnumeratesValues.php(240): Illuminate\\Foundation\\Console\\OptimizeClearCommand->Illuminate\\Foundation\\Console\\{closure}(Object(Closure), 'cache')
+#30 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Foundation/Console/OptimizeClearCommand.php(41): Illuminate\\Support\\Collection->each(Object(Closure))
+#31 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Illuminate\\Foundation\\Console\\OptimizeClearCommand->handle()
+#32 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#33 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#34 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#35 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Container/Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#36 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/Command.php(211): Illuminate\\Container\\Container->call(Array)
+#37 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Command/Command.php(326): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#38 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#39 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(1106): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#40 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Foundation\\Console\\OptimizeClearCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#41 /Users/ahmedomar/Documents/ElmCorner/website/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#42 /Users/ahmedomar/Documents/ElmCorner/website/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#43 /Users/ahmedomar/Documents/ElmCorner/website/artisan(14): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#44 {main}
+"} 

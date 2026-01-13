@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap');
-
 @layer base {
   body {
     @apply font-almarai text-gray-800;
@@ -455,4 +453,61 @@
     0 8px 20px rgba(228, 64, 95, 0.3),
     0 0 15px rgba(228, 64, 95, 0.2);
   background: linear-gradient(135deg, rgba(228, 64, 95, 0.2), rgba(131, 58, 180, 0.2));
+}
+
+/* Modern Navigation Styles */
+.nav-link {
+  @apply relative px-4 py-2 text-sm font-medium text-gray-300 rounded-lg transition-all duration-300;
+  @apply hover:text-white hover:bg-gray-800/50;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #22c55e, transparent);
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.nav-link.active {
+  @apply text-islamic-green-400 bg-islamic-green-500/10;
+}
+
+.nav-link.active::after {
+  background: linear-gradient(90deg, transparent, #22c55e, #06b6d4, transparent);
+}
+
+.lang-switch {
+  @apply px-3 py-1.5 text-xs font-semibold rounded-md transition-all duration-300;
+  @apply text-gray-400 hover:text-white hover:bg-gray-800;
+}
+
+.lang-switch.active {
+  @apply bg-islamic-green-600 text-white shadow-lg shadow-islamic-green-500/30;
+}
+
+.mobile-nav-link {
+  @apply block px-4 py-3 text-gray-300 rounded-lg transition-all duration-200;
+  @apply hover:text-white hover:bg-gray-800/50 hover:translate-x-1 rtl:hover:translate-x-[-4px];
+  @apply border-l-2 rtl:border-l-0 rtl:border-r-2 border-transparent;
+  @apply hover:border-islamic-green-500;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide element until Alpine.js loads */
+[x-cloak] {
+  display: none !important;
 }

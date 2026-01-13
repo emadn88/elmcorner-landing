@@ -3,83 +3,224 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
-    <title><?php echo e(config('app.name', 'ElmCorner')); ?> - Online Islamic Academy</title>
-    <meta name="description" content="Learn Quran, Islamic Studies, and Arabic Language online. Quality education for all ages, anywhere in the world.">
     
-    <!-- Almarai Font -->
+    <?php
+        $seo = app(\App\Services\SeoService::class);
+        if (isset($seoData)) {
+            if (isset($seoData['title'])) $seo->setTitle($seoData['title']);
+            if (isset($seoData['description'])) $seo->setDescription($seoData['description']);
+            if (isset($seoData['keywords'])) $seo->setKeywords($seoData['keywords']);
+            if (isset($seoData['image'])) $seo->setImage($seoData['image']);
+            if (isset($seoData['url'])) $seo->setUrl($seoData['url']);
+            if (isset($seoData['type'])) $seo->setType($seoData['type']);
+            if (isset($seoData['article'])) $seo->setArticle($seoData['article']);
+        }
+        $currentUrl = url()->current();
+        $baseUrl = config('app.url');
+    ?>
+    
+    <!-- Primary Meta Tags -->
+    <title><?php echo e($seo->get('title')); ?></title>
+    <meta name="title" content="<?php echo e($seo->get('title')); ?>">
+    <meta name="description" content="<?php echo e($seo->get('description')); ?>">
+    <meta name="keywords" content="<?php echo e($seo->get('keywords')); ?>">
+    <meta name="author" content="<?php echo e(config('app.name', 'ElmCorner')); ?>">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="language" content="<?php echo e(app()->getLocale() === 'ar' ? 'Arabic' : 'English'); ?>">
+    <meta name="revisit-after" content="7 days">
+    <meta name="rating" content="general">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="<?php echo e($seo->get('url')); ?>">
+    
+    <!-- Alternate Language Versions (hreflang) -->
+    <link rel="alternate" hreflang="en" href="<?php echo e(str_replace('/ar/', '/en/', $currentUrl)); ?>">
+    <link rel="alternate" hreflang="ar" href="<?php echo e(str_replace('/en/', '/ar/', $currentUrl)); ?>">
+    <link rel="alternate" hreflang="x-default" href="<?php echo e(str_replace(['/ar/', '/en/'], '', $currentUrl)); ?>">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="<?php echo e($seo->get('type')); ?>">
+    <meta property="og:url" content="<?php echo e($seo->get('url')); ?>">
+    <meta property="og:title" content="<?php echo e($seo->get('title')); ?>">
+    <meta property="og:description" content="<?php echo e($seo->get('description')); ?>">
+    <meta property="og:image" content="<?php echo e($seo->get('image')); ?>">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="<?php echo e($seo->get('title')); ?>">
+    <meta property="og:site_name" content="<?php echo e($seo->get('site_name')); ?>">
+    <meta property="og:locale" content="<?php echo e(app()->getLocale() === 'ar' ? 'ar_AR' : 'en_US'); ?>">
+    <meta property="og:locale:alternate" content="<?php echo e(app()->getLocale() === 'ar' ? 'en_US' : 'ar_AR'); ?>">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="<?php echo e($seo->get('url')); ?>">
+    <meta name="twitter:title" content="<?php echo e($seo->get('title')); ?>">
+    <meta name="twitter:description" content="<?php echo e($seo->get('description')); ?>">
+    <meta name="twitter:image" content="<?php echo e($seo->get('image')); ?>">
+    <meta name="twitter:image:alt" content="<?php echo e($seo->get('title')); ?>">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#22c55e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="<?php echo e(config('app.name', 'ElmCorner')); ?>">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="<?php echo e(asset('images/logo.png')); ?>">
+    <link rel="apple-touch-icon" href="<?php echo e(asset('images/logo.png')); ?>">
+    
+    <!-- Preconnect to External Domains for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://wa.me">
+    
+    <!-- Almarai Font with display=swap for performance -->
     <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
     
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+        <?php echo $seo->generateStructuredData(); ?>
+
+    </script>
+    
+    <?php echo $__env->yieldPushContent('head'); ?>
+    
+    <!-- Google Tag Manager -->
+    <?php if(config('services.google.tag_manager_id')): ?>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','<?php echo e(config('services.google.tag_manager_id')); ?>');</script>
+    <?php endif; ?>
+    
+    <!-- Google Analytics & Google Ads -->
+    <?php if(config('services.google.analytics_id')): ?>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo e(config('services.google.analytics_id')); ?>"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '<?php echo e(config('services.google.analytics_id')); ?>', {
+            'send_page_view': true,
+            'anonymize_ip': true,
+            'cookie_flags': 'SameSite=None;Secure'
+        });
+        
+        <?php if(config('services.google.ads_id')): ?>
+        gtag('config', '<?php echo e(config('services.google.ads_id')); ?>');
+        <?php endif; ?>
+    </script>
+    <?php endif; ?>
+    
+    <!-- Vite Assets -->
     <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/js/app.js']); ?>
 </head>
 <body class="bg-gray-900" style="font-family: 'Almarai', sans-serif;">
+    <!-- Google Tag Manager (noscript) -->
+    <?php if(config('services.google.tag_manager_id')): ?>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?php echo e(config('services.google.tag_manager_id')); ?>"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <?php endif; ?>
+    
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur-sm shadow-md border-b border-gray-800" x-data="{ mobileMenuOpen: false }">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-800/50" 
+         x-data="{ mobileMenuOpen: false, scrolled: false }"
+         @scroll.window="scrolled = window.scrollY > 20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
+            <div class="flex justify-between items-center h-16 md:h-20">
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <a href="<?php echo e(route('home', ['locale' => app()->getLocale()])); ?>" class="flex items-center space-x-3">
-                        <img src="<?php echo e(asset('images/logo.png')); ?>" alt="ElmCorner Logo" class="h-12 w-auto">
-                        <span class="text-2xl font-bold bg-gradient-to-r from-islamic-green-600 to-islamic-gold-600 bg-clip-text text-transparent">
+                    <a href="<?php echo e(route('home', ['locale' => app()->getLocale()])); ?>" class="flex items-center space-x-2 rtl:space-x-reverse group">
+                        <img src="<?php echo e(asset('images/logo.png')); ?>" alt="ElmCorner Logo - Online Islamic Academy" class="h-10 md:h-12 w-auto transition-transform group-hover:scale-105" loading="eager" width="120" height="120">
+                        <span class="text-xl md:text-2xl font-bold bg-gradient-to-r from-islamic-green-500 to-islamic-teal-500 bg-clip-text text-transparent">
                             ElmCorner
                         </span>
                     </a>
                 </div>
 
                 <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-6 rtl:space-x-reverse rtl:space-x-6">
-                    <a href="#features" class="text-gray-300 hover:text-islamic-green-400 transition-colors px-2"><?php echo e(__('messages.features_title')); ?></a>
-                    <a href="#about" class="text-gray-300 hover:text-islamic-green-400 transition-colors px-2"><?php echo e(__('messages.about_title')); ?></a>
-                    <a href="#courses" class="text-gray-300 hover:text-islamic-green-400 transition-colors px-2"><?php echo e(__('messages.courses_title')); ?></a>
-                    <a href="#testimonials" class="text-gray-300 hover:text-islamic-green-400 transition-colors px-2"><?php echo e(__('messages.testimonials_title')); ?></a>
-                    <a href="https://wa.me/1234567890?text=Hello%2C%20I%20would%20like%20to%20enroll%20in%20ElmCorner" target="_blank" rel="noopener noreferrer" class="btn-primary ml-2 rtl:ml-0 rtl:mr-2"><?php echo e(__('messages.cta_enroll')); ?></a>
+                <div class="hidden lg:flex items-center space-x-1 rtl:space-x-reverse">
+                    <a href="<?php echo e(route('home', ['locale' => app()->getLocale()])); ?>" 
+                       class="nav-link <?php echo e(request()->routeIs('home') ? 'active' : ''); ?>">
+                        <?php echo e(app()->getLocale() === 'ar' ? 'الرئيسية' : 'Home'); ?>
+
+                    </a>
+                    <a href="#about" class="nav-link"><?php echo e(__('messages.nav_about')); ?></a>
+                    <a href="#courses" class="nav-link"><?php echo e(__('messages.courses_title')); ?></a>
+                    <a href="#pricing" class="nav-link"><?php echo e(__('messages.nav_pricing')); ?></a>
+                    <a href="<?php echo e(route('blog.index', ['locale' => app()->getLocale()])); ?>" 
+                       class="nav-link <?php echo e(request()->routeIs('blog.*') ? 'active' : ''); ?>">
+                        <?php echo e(app()->getLocale() === 'ar' ? 'المدونة' : 'Blog'); ?>
+
+                    </a>
+                    <a href="#enroll" class="nav-link"><?php echo e(__('messages.nav_enroll')); ?></a>
                     
                     <!-- Language Switcher -->
-                    <div class="flex items-center space-x-2">
+                    <div class="flex items-center space-x-1 rtl:space-x-reverse ml-4 rtl:ml-0 rtl:mr-4 pl-4 rtl:pl-0 rtl:pr-4 border-l rtl:border-l-0 rtl:border-r border-gray-700">
                         <a href="<?php echo e(route('home', ['locale' => 'en'])); ?>" 
-                           class="px-3 py-1 rounded <?php echo e(app()->getLocale() === 'en' ? 'bg-islamic-green-600 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white'); ?>">
+                           class="lang-switch <?php echo e(app()->getLocale() === 'en' ? 'active' : ''); ?>">
                             EN
                         </a>
                         <a href="<?php echo e(route('home', ['locale' => 'ar'])); ?>" 
-                           class="px-3 py-1 rounded <?php echo e(app()->getLocale() === 'ar' ? 'bg-islamic-green-600 text-white' : 'text-gray-400 hover:bg-gray-800 hover:text-white'); ?>">
+                           class="lang-switch <?php echo e(app()->getLocale() === 'ar' ? 'active' : ''); ?>">
                             AR
                         </a>
                     </div>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-gray-300">
-                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <button @click="mobileMenuOpen = !mobileMenuOpen" 
+                        class="lg:hidden text-gray-300 hover:text-islamic-green-400 transition-colors p-2 rounded-lg hover:bg-gray-800">
+                    <svg x-show="!mobileMenuOpen" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    <svg x-show="mobileMenuOpen" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
             </div>
 
             <!-- Mobile Menu -->
             <div x-show="mobileMenuOpen" 
+                 x-cloak
                  x-transition:enter="transition ease-out duration-200"
-                 x-transition:enter-start="opacity-0 transform -translate-y-1"
+                 x-transition:enter-start="opacity-0 transform -translate-y-2"
                  x-transition:enter-end="opacity-100 transform translate-y-0"
                  x-transition:leave="transition ease-in duration-150"
                  x-transition:leave-start="opacity-100 transform translate-y-0"
-                 x-transition:leave-end="opacity-0 transform -translate-y-1"
-                 class="md:hidden pb-4">
-                <a href="#features" class="block py-2 text-gray-300 hover:text-islamic-green-400"><?php echo e(__('messages.features_title')); ?></a>
-                <a href="#about" class="block py-2 text-gray-300 hover:text-islamic-green-400"><?php echo e(__('messages.about_title')); ?></a>
-                <a href="#courses" class="block py-2 text-gray-300 hover:text-islamic-green-400"><?php echo e(__('messages.courses_title')); ?></a>
-                <a href="#testimonials" class="block py-2 text-gray-300 hover:text-islamic-green-400"><?php echo e(__('messages.testimonials_title')); ?></a>
-                <a href="https://wa.me/1234567890?text=Hello%2C%20I%20would%20like%20to%20enroll%20in%20ElmCorner" target="_blank" rel="noopener noreferrer" class="block py-2 btn-primary text-center"><?php echo e(__('messages.cta_enroll')); ?></a>
-                <div class="flex items-center space-x-2 mt-4">
+                 x-transition:leave-end="opacity-0 transform -translate-y-2"
+                 class="lg:hidden pb-4 pt-2 border-t border-gray-800">
+                <a href="<?php echo e(route('home', ['locale' => app()->getLocale()])); ?>" 
+                   class="mobile-nav-link">
+                    <?php echo e(app()->getLocale() === 'ar' ? 'الرئيسية' : 'Home'); ?>
+
+                </a>
+                <a href="#about" class="mobile-nav-link"><?php echo e(__('messages.nav_about')); ?></a>
+                <a href="#courses" class="mobile-nav-link"><?php echo e(__('messages.courses_title')); ?></a>
+                <a href="#pricing" class="mobile-nav-link"><?php echo e(__('messages.nav_pricing')); ?></a>
+                <a href="<?php echo e(route('blog.index', ['locale' => app()->getLocale()])); ?>" 
+                   class="mobile-nav-link">
+                    <?php echo e(app()->getLocale() === 'ar' ? 'المدونة' : 'Blog'); ?>
+
+                </a>
+                <a href="#enroll" class="mobile-nav-link"><?php echo e(__('messages.nav_enroll')); ?></a>
+                
+                <!-- Language Switcher Mobile -->
+                <div class="flex items-center gap-2 mt-4 pt-4 border-t border-gray-800">
+                    <span class="text-gray-500 text-sm"><?php echo e(app()->getLocale() === 'ar' ? 'اللغة:' : 'Language:'); ?></span>
                     <a href="<?php echo e(route('home', ['locale' => 'en'])); ?>" 
-                       class="flex-1 text-center px-3 py-1 rounded <?php echo e(app()->getLocale() === 'en' ? 'bg-islamic-green-600 text-white' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'); ?>">
-                        EN
+                       class="flex-1 text-center px-4 py-2 rounded-lg text-sm font-medium transition-colors <?php echo e(app()->getLocale() === 'en' ? 'bg-islamic-green-600 text-white' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'); ?>">
+                        English
                     </a>
                     <a href="<?php echo e(route('home', ['locale' => 'ar'])); ?>" 
-                       class="flex-1 text-center px-3 py-1 rounded <?php echo e(app()->getLocale() === 'ar' ? 'bg-islamic-green-600 text-white' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'); ?>">
-                        AR
+                       class="flex-1 text-center px-4 py-2 rounded-lg text-sm font-medium transition-colors <?php echo e(app()->getLocale() === 'ar' ? 'bg-islamic-green-600 text-white' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'); ?>">
+                        العربية
                     </a>
                 </div>
             </div>
@@ -157,7 +298,7 @@
                 <!-- About -->
                 <div>
                     <div class="flex items-center space-x-3 mb-6">
-                        <img src="<?php echo e(asset('images/logo.png')); ?>" alt="ElmCorner Logo" class="h-12 w-auto drop-shadow-lg">
+                        <img src="<?php echo e(asset('images/logo.png')); ?>" alt="ElmCorner Logo - Online Islamic Academy" class="h-12 w-auto drop-shadow-lg" loading="lazy" width="120" height="120">
                         <span class="text-2xl font-bold bg-gradient-to-r from-islamic-green-400 to-islamic-teal-400 bg-clip-text text-transparent">ElmCorner</span>
                     </div>
                     <p class="text-gray-300 leading-relaxed"><?php echo e(__('messages.footer_about_desc')); ?></p>
@@ -180,6 +321,12 @@
                             </a>
                         </li>
                         <li>
+                            <a href="#pricing" class="text-gray-300 hover:text-islamic-gold-400 transition-colors duration-300 flex items-center group">
+                                <span class="w-1.5 h-1.5 bg-islamic-gold-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                                <span class="group-hover:translate-x-1 transition-transform"><?php echo e(__('messages.nav_pricing')); ?></span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="#testimonials" class="text-gray-300 hover:text-islamic-green-400 transition-colors duration-300 flex items-center group">
                                 <span class="w-1.5 h-1.5 bg-islamic-green-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                                 <span class="group-hover:translate-x-1 transition-transform"><?php echo e(__('messages.testimonials_title')); ?></span>
@@ -189,6 +336,12 @@
                             <a href="#enroll" class="text-gray-300 hover:text-islamic-teal-400 transition-colors duration-300 flex items-center group">
                                 <span class="w-1.5 h-1.5 bg-islamic-teal-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                                 <span class="group-hover:translate-x-1 transition-transform"><?php echo e(__('messages.cta_enroll')); ?></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?php echo e(route('blog.index', ['locale' => app()->getLocale()])); ?>" class="text-gray-300 hover:text-islamic-green-400 transition-colors duration-300 flex items-center group">
+                                <span class="w-1.5 h-1.5 bg-islamic-green-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                                <span class="group-hover:translate-x-1 transition-transform"><?php echo e(app()->getLocale() === 'ar' ? 'المدونة' : 'Blog'); ?></span>
                             </a>
                         </li>
                     </ul>

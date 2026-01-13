@@ -77,4 +77,54 @@ return [
     'footer_quick_links' => 'روابط سريعة',
     'footer_contact' => 'اتصل بنا',
     'footer_rights' => 'جميع الحقوق محفوظة.',
+    
+    // Navigation
+    'nav_about' => 'من نحن',
+    'nav_pricing' => 'الباقات',
+    'nav_enroll' => 'سجل الآن',
+    
+    // Pricing Section
+    'pricing_title' => 'باقاتنا التعليمية',
+    'pricing_subtitle' => 'اختر الباقة المناسبة لك وابدأ رحلتك التعليمية',
+    'pricing_package_1' => 'الباقة 1',
+    'pricing_package_1_name' => '🌙 بركة للمبتدئين',
+    'pricing_package_1_desc' => 'مثالية للمبتدئين والطلاب الجدد',
+    'pricing_package_1_feature_1' => 'حصتين مباشرتين أسبوعياً',
+    'pricing_package_1_feature_2' => 'معلم إسلامي مؤهل',
+    'pricing_package_1_feature_3' => 'خطة تعليمية مخصصة',
+    'pricing_package_1_feature_4' => 'تقرير تقدم شهري',
+    'pricing_package_1_save' => 'وفر 15$ شهرياً',
+    
+    'pricing_package_2' => 'الباقة 2',
+    'pricing_package_2_name' => '🕌 علم للنمو',
+    'pricing_package_2_desc' => 'الأكثر شعبية – تعلم وتقدم متوازن',
+    'pricing_package_2_feature_1' => '3 حصص مباشرة أسبوعياً',
+    'pricing_package_2_feature_2' => 'اهتمام فردي في مجموعات صغيرة',
+    'pricing_package_2_feature_3' => 'التجويد والدراسات الإسلامية متكاملة',
+    'pricing_package_2_feature_4' => 'مراجعة الواجبات الأسبوعية',
+    'pricing_package_2_feature_5' => 'جلسة ملاحظات شهرية للوالدين',
+    'pricing_package_2_save' => 'وفر 25$ شهرياً',
+    'pricing_most_popular' => 'الأكثر شعبية',
+    
+    'pricing_package_3' => 'الباقة 3',
+    'pricing_package_3_name' => '🌟 إحسان المميزة',
+    'pricing_package_3_desc' => 'تجربة تعليم إسلامي كاملة',
+    'pricing_package_3_feature_1' => '5 حصص مباشرة أسبوعياً',
+    'pricing_package_3_feature_2' => 'معلم شخصي مخصص',
+    'pricing_package_3_feature_3' => 'تجويد متقدم والدراسات الإسلامية',
+    'pricing_package_3_feature_4' => 'تقييم تقدم أسبوعي',
+    'pricing_package_3_feature_5' => 'جدولة ذات أولوية',
+    'pricing_package_3_feature_6' => 'دعم طلابي على مدار الساعة',
+    'pricing_package_3_feature_7' => 'شهادة إتمام',
+    'pricing_package_3_save' => 'وفر 41$ شهرياً',
+    
+    'pricing_per_month' => '/ شهرياً',
+    'pricing_addons_title' => '💚 خيارات التوفير الإضافية',
+    'pricing_addons_subtitle' => 'وفر أكثر مع خيارات التوفير الخاصة بنا',
+    'pricing_addon_family' => 'خصم العائلة',
+    'pricing_addon_family_desc' => 'وفر 10% لشقيقين أو أكثر',
+    'pricing_addon_3month' => 'خطة 3 أشهر',
+    'pricing_addon_3month_desc' => 'وفر 15% مع الالتزام ربع السنوي',
+    'pricing_addon_6month' => 'خطة 6 أشهر',
+    'pricing_addon_6month_desc' => 'وفر 25% مع الالتزام نصف السنوي',
 ];

@@ -104,8 +104,8 @@ Alpine.data('whatsappFloat', () => ({
 
 Alpine.start();
 
-// Scroll animations
-document.addEventListener('DOMContentLoaded', function() {
+// Scroll animations with performance optimization
+if ('IntersectionObserver' in window) {
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -120,7 +120,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
 
-    document.querySelectorAll('.fade-in-on-scroll').forEach(el => {
-        observer.observe(el);
+    // Use requestIdleCallback for better performance, fallback to setTimeout
+    const scheduleObserver = window.requestIdleCallback || ((cb) => setTimeout(cb, 1));
+    
+    scheduleObserver(() => {
+        document.querySelectorAll('.fade-in-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
     });
-});
+}
+
+// Lazy load images that don't have native lazy loading
+if ('loading' in HTMLImageElement.prototype === false) {
+    const lazyImages = document.querySelectorAll('img[data-src]');
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+
+    lazyImages.forEach(img => imageObserver.observe(img));
+}

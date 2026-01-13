@@ -11,4 +11,22 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    build: {
+        rollupOptions: {
+            output: {
+                manualChunks: {
+                    'alpine': ['alpinejs'],
+                },
+            },
+        },
+        cssCodeSplit: true,
+        sourcemap: false,
+        minify: 'esbuild',
+        chunkSizeWarningLimit: 1000,
+    },
+    server: {
+        hmr: {
+            host: 'localhost',
+        },
+    },
 });
